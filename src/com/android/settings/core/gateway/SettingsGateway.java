@@ -44,6 +44,7 @@ import com.android.settings.accounts.ManagedProfileSettings;
 import com.android.settings.applications.AppDashboardFragment;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.appcompat.UserAspectRatioDetails;
 import com.android.settings.applications.appinfo.AlarmsAndRemindersDetails;
@@ -405,6 +406,7 @@ public class SettingsGateway {
             LockScreen.class.getName(),
             QuickSettings.class.getName(),
             StatusBar.class.getName(),
+            RunningServices.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -456,5 +458,6 @@ public class SettingsGateway {
             Settings.LockscreenActivity.class.getName(),
             Settings.QSActivity.class.getName(),
             Settings.StatusBarActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName(),
     };
 }
