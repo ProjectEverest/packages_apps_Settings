@@ -426,4 +426,7 @@
     <!-- Smart 5G -->
     <string name="smart_5g_title">Smart 5G</string>
     <string name="smart_5g_summary">Automatically switch between 5G and 4G to reduce battery consumption</string>
+
+    <!-- Running services - Background processes tab -->
+    <string name="background_processes_settings_title">Background processes</string>
 </resources>
