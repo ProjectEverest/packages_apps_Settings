@@ -113,6 +113,12 @@
         android:key="misc_vibration_category"
         android:title="@string/misc_vibration_category_title" >
 
+        <!-- Charger haptic feedback -->
+        <com.everest.basecamp.preferences.GlobalSettingSwitchPreference
+            android:key="charging_vibration_enabled"
+            android:title="@string/charger_haptic_feedback_title"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
