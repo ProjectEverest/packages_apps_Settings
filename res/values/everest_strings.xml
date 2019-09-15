@@ -286,4 +286,7 @@
     <!-- Base Camp -->
     <string name="basecamp_dash_title">Everest Basecamp</string>
     <string name="basecamp_summary">Height of Customization!!</string>
+
+    <!-- Battery temperature -->
+    <string name="battery_temperature">Battery temperature</string>
 </resources>
