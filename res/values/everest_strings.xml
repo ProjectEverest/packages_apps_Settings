@@ -298,4 +298,7 @@
     <string name="battery_stat_temp">Temperature</string>
     <string name="battery_stat_capacity">Capacity</string>
     <string name="battery_stat_cycle">Cycle</string>
+
+    <!-- EverestOS  Maintainer -->
+    <string name="EverestOS_maintainer">Device Maintainer</string>
 </resources>
