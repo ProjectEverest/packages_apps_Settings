@@ -37,4 +37,8 @@
     
     <!-- Color for Settings Header -->
     <color name="settingsHeaderColor">@*android:color/accent_device_default_light</color>
+
+    <!-- xdUI Base Layout -->
+    <color name="homepage_blaze_background">#536dfe</color>
+    <color name="xd_background1">@android:color/system_neutral1_50</color>
 </resources>

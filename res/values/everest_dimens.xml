@@ -7,4 +7,15 @@
     <dimen name="card_radius">20dp</dimen>
     <dimen name="custom_search_bar_corner_radius">22dp</dimen>
     <dimen name="card_radius_highlight">22dp</dimen>
+
+    <!-- xd. Preference Card -->
+    <dimen name="xd_pref_card_radius">28dp</dimen>
+    <dimen name="xd_pref_card_radius-outer">5dp</dimen>
+    <dimen name="xd_pref_card_horizontal_padding">10dp</dimen>
+    <dimen name="xd_pref_card_horizontal_padding-negative">-10dp</dimen>
+
+    <!-- xd. Toolbar --> 
+    <dimen name="xd_toolbar_height">175dp</dimen>
+    <dimen name="xd_toolbar_expanded_title_margin_start">21dp</dimen>
+    <dimen name="xd_toolbar_expanded_title_margin_end">75dp</dimen>
 </resources>
