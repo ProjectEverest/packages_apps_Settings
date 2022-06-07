@@ -23,4 +23,17 @@
         <item>com.google.android.documentsui</item>
         <item>com.google.android.googlequicksearchbox</item>
     </string-array>
+
+    <!-- Navigation bar IME space -->
+    <string-array name="navigation_bar_ime_space_entries" translatable="false">
+        <item>@string/ime_default</item>
+        <item>@string/ime_narrow</item>
+        <item>@string/ime_hidden</item>
+    </string-array>
+
+    <string-array name="navigation_bar_ime_space_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
