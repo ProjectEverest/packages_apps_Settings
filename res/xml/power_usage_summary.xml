@@ -33,6 +33,12 @@
         settings:controller="com.android.settings.fuelgauge.BatteryHeaderPreferenceController" />
 
     <com.android.settingslib.widget.LayoutPreference
+        android:key="battery_stat"
+        android:layout="@layout/preference_battery_stat"
+        android:selectable="false"
+        settings:searchable="false" />
+
+    <com.android.settingslib.widget.LayoutPreference
         android:key="battery_help_message"
         android:layout="@layout/preference_battery_error"
         android:selectable="false"
@@ -91,11 +97,6 @@
         android:title="@string/battery_info"
         android:fragment="com.android.settings.deviceinfo.batteryinfo.BatteryInfoFragment"
         settings:keywords="@string/keywords_battery_info"/>
-
-    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
-        android:key="battery_temperature"
-        android:title="@string/battery_temperature"
-        android:selectable="false" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
