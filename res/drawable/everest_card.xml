@@ -4,8 +4,8 @@
     <solid android:color="@color/abt_crd"/>
        <stroke android:width="2dp" android:color="@color/settingslib_text_color_primary_device_default" />
           <corners
-                android:topRightRadius="28dp"
-                android:topLeftRadius="28dp"
-                android:bottomLeftRadius="28dp"
-                android:bottomRightRadius="28dp" />
+                android:topRightRadius="20dp"
+                android:topLeftRadius="20dp"
+                android:bottomLeftRadius="20dp"
+                android:bottomRightRadius="20dp" />
 </shape>

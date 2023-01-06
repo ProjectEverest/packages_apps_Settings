@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.VisibleForTesting;
+import android.os.UserHandle;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
@@ -43,6 +44,7 @@ import androidx.window.embedding.ActivityEmbeddingController;
 import androidx.window.embedding.SplitController;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.activityembedding.ActivityEmbeddingRulesController;
@@ -65,6 +67,9 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     private static final String TAG = "TopLevelSettings";
     private static final String SAVED_HIGHLIGHT_MIXIN = "highlight_mixin";
     private static final String PREF_KEY_SUPPORT = "top_level_support";
+
+    private int mAboutPhoneStyle;
+    private int mDashBoardStyle;
 
     private boolean mIsEmbeddingActivityEnabled;
     private TopLevelHighlightMixin mHighlightMixin;
@@ -90,7 +95,16 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.top_level_settings;
+        switch (mDashBoardStyle) {
+           case 0:
+               return R.xml.top_level_settings;
+           case 1:
+               return R.xml.top_level_settings_non_header;
+           case 2:
+               return R.xml.top_level_settings_single;
+           default:
+               return R.xml.top_level_settings_non_header;
+        }
     }
 
     @Override
@@ -117,6 +131,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         gAppsExists = checkIfGoogleAppsExist(context);
         HighlightableMenu.fromXml(context, getPreferenceScreenResId());
         use(SupportPreferenceController.class).setActivity(getActivity());
+        getAboutPhoneStyle(context);
+        setDashboardStyle(context);
     }
 
     @Override
@@ -252,6 +268,9 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             final Preference preference = screen.getPreference(i);
 
             String key = preference.getKey();
+            
+       switch (mDashBoardStyle) {
+	case 0:
             if (key.equals("top_level_network")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_apps")
@@ -274,11 +293,52 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             } else if (key.equals("top_level_basecamp")){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_single);
             } else if (key.equals("top_level_about_device")){
-                preference.setLayoutResource(R.layout.custom_dashboard_top);
+                if (mAboutPhoneStyle == 0) {
+                    preference.setLayoutResource(R.layout.top_about_blur);
+                } else if (mAboutPhoneStyle == 1) {
+                    preference.setLayoutResource(R.layout.custom_dashboard_top);
+                } else if (mAboutPhoneStyle == 2) {
+                    preference.setLayoutResource(R.layout.top_about_lottie1);
+                } else if (mAboutPhoneStyle == 3) {
+                    preference.setLayoutResource(R.layout.top_about_lottie2);
+                }
+             } else {
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
+            }
+            break;
+	case 1:
+            if (key.equals("top_level_network")
+            	|| key.equals("top_level_display")
+            	|| key.equals("top_level_notifications")
+            	|| key.equals("top_level_accessibility")
+            	|| key.equals("top_level_emergency")
+                || key.equals("top_level_system")){
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_top);
+            } else if (key.equals("top_level_wallpaper")
+                || key.equals("top_level_battery")
+                || key.equals("top_level_apps")
+            	|| key.equals("top_level_security")
+            	|| key.equals("top_level_privacy")
+            	|| key.equals("top_level_safety_center")
+            	|| key.equals("top_level_wellbeing")){
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
+            } else if ("top_level_google".equals(key)){
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
+            } else if (key.equals("top_level_accounts") && gAppsExists){
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
+            } else if (key.equals("top_level_basecamp")){
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_single);
             } else {
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             }
-       }
+            break;
+        case 2:
+            preference.setLayoutResource(R.layout.single_dashboard_preference);
+            break;
+	default:
+            break;
+            }
+        }
     }
 
     @Override
@@ -406,6 +466,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         return new HomepagePreference(getPrefContext());
     }
 
+
     void reloadHighlightMenuKey() {
         if (mHighlightMixin != null) {
             mHighlightMixin.reloadHighlightMenuKey(getArguments());
@@ -448,4 +509,13 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                     return false;
                 }
             };
+            private void getAboutPhoneStyle(Context context) {
+        mAboutPhoneStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    "header_style", 0, UserHandle.USER_CURRENT);
+    }
+    
+            private void setDashboardStyle(Context context) {
+        mDashBoardStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    "settings_dashboard_style", 0, UserHandle.USER_CURRENT);
+    }
 }

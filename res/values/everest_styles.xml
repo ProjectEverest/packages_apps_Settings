@@ -51,4 +51,12 @@
         <item name="android:fontFamily">@*android:string/config_regularFontFamily</item>
         <item name="android:textAppearance">?android:attr/textAppearanceListItemSmall</item>
     </style>
+
+    <style name="TextAppearance.HomepagePreferenceTitle" parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerRadius" parent="">
+        <item name="cornerSize">@dimen/everest_radius</item>
+    </style>
 </resources>

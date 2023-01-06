@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:layout_marginHorizontal="16dp"
+    android:background="@drawable/syberia_card"
+    android:layout_marginBottom="12dp"
+    android:elevation="0dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp">
+
+        <com.radiant.widget.WallpaperBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                app:cardBackgroundColor="#00000000"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/phone_image"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="?android:attr/textColorPrimary"
+                    app:strokeWidth="3dp">
+
+                    <com.android.utils.aboutWallpaperView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:elevation="0dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:scaleType="centerCrop" />
+                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1.0">
+
+                <TextView
+                    android:id="@android:id/summary"
+                    style="@style/op_control_text_style_h6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="64.0dip"
+                    android:background="@drawable/homepage_text_bg"
+                    android:ellipsize="marquee"
+                    android:fadingEdge="horizontal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:singleLine="true"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>
