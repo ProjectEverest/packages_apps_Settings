@@ -55,7 +55,7 @@
         android:title="@string/basecamp_dash_title"
         android:summary="@string/basecamp_summary"
         android:icon="@drawable/ic_settings_everest"
-        android:order="-130"
+        android:order="-170"
         android:fragment="com.everest.basecamp.BaseCamp"
         settings:controller="com.everest.basecamp.TopLevelExtensionsEntryPreferenceController"/>
 
