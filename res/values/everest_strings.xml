@@ -369,7 +369,6 @@
     <string name="black_theme_style_berry">Berry black</string>
     <string name="black_theme_style_amoled">True amoled dark</string>
 
-
     <!-- Columbus -->
     <string name="columbus_title" translatable="false">@string/columbus_name</string>
     <string name="columbus_gesture_detected">Quick Tap detected!</string>
@@ -422,4 +421,8 @@
     <string name="columbus_setting_enable_switch_title">Use Quick Tap</string>
     <string name="columbus_setting_sensitivity_title">Require stronger taps</string>
     <string name="columbus_summary" translatable="false">%1$s / %2$s</string>
+
+    <!-- Smart 5G -->
+    <string name="smart_5g_title">Smart 5G</string>
+    <string name="smart_5g_summary">Automatically switch between 5G and 4G to reduce battery consumption</string>
 </resources>
