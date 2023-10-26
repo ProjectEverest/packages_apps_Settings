@@ -91,4 +91,7 @@
 
     <!-- Charging sound -->
     <string name="charging_sounds_custom_title">Charging sounds</string>
+
+    <!-- Screenshot shutter -->
+    <string name="screenshot_shutter_sound_title">Screenshot sound</string>
 </resources>
