@@ -5234,6 +5234,19 @@
             android:taskAffinity="com.android.settings.applock"
             android:launchMode="singleTask" />
 
+        <!-- BaseCamp -->
+        <activity android:name=".Settings$BaseCampActivity"
+            android:label="@string/basecamp_dash_title"
+            android:icon="@drawable/ic_homepage_everest"
+            android:exported="true"
+            android:parentActivityName="com.android.settings">
+            <intent-filter>
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.everest.basecamp.BaseCamp" />
+        </activity>
+
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>
