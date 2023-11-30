@@ -492,4 +492,7 @@ public class Settings extends SettingsActivity {
     public static class ResetMobileNetworkSettingsActivity extends SettingsActivity { /* empty */ }
 
     public static class PrivateDnsSettingsActivity extends SettingsActivity { /* empty */ }
+
+    // BaseCamp Additoon
+    public static class BaseCampActivity extends SettingsActivity {}
 }
