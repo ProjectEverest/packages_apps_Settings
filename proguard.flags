@@ -17,6 +17,8 @@
     *;
 }
 
+-keep class com.everest.basecamp**
+
 # We want to keep methods in Activity that could be used in the XML attribute onClick.
 -keepclassmembers class com.android.settings*.** extends android.app.Activity {
     public void *(android.view.View);
@@ -65,3 +67,9 @@
 -keep class androidx.window.extensions.** { *; }
 -dontwarn androidx.window.extensions.**
 -keep class androidx.window.** { *; }
+
+# ExpandableBottomBar
+-keep class github.com.st235.lib_expandablebottombar.ExpandableBottomBar { *; }
+-keep class github.com.st235.lib_expandablebottombar.behavior.ExpandableBottomBarBehavior { *; }
+-keep class github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem** { *; }
+-keep class github.com.st235.lib_expandablebottombar.ExpandableBottomBarScrollableBehavior { *; }
