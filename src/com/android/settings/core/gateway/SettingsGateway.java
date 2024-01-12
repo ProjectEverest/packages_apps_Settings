@@ -204,6 +204,9 @@ import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSetting
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.everest.basecamp.BaseCamp;
+import com.everest.basecamp.fragments.LockScreen;
+import com.everest.basecamp.fragments.QuickSettings;
+import com.everest.basecamp.fragments.StatusBar;
 
 public class SettingsGateway {
 
@@ -397,6 +400,9 @@ public class SettingsGateway {
             PrivateDnsSettings.class.getName(),
             VolumeStepsSettings.class.getName(),
             BaseCamp.class.getName(),
+            LockScreen.class.getName(),
+            QuickSettings.class.getName(),
+            StatusBar.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -445,5 +451,8 @@ public class SettingsGateway {
             Settings.NavigationModeSettingsActivity.class.getName(),
             Settings.PrivateDnsSettingsActivity.class.getName(),
             Settings.BaseCampActivity.class.getName(),
+            Settings.LockscreenActivity.class.getName(),
+            Settings.QSActivity.class.getName(),
+            Settings.StatusBarActivity.class.getName(),
     };
 }

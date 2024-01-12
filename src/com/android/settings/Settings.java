@@ -495,4 +495,7 @@ public class Settings extends SettingsActivity {
 
     // BaseCamp Additoon
     public static class BaseCampActivity extends SettingsActivity {}
+    public static class LockscreenActivity extends SettingsActivity { /* empty */ }
+    public static class QSActivity extends SettingsActivity { /* empty */ }
+    public static class StatusBarActivity extends SettingsActivity { /* empty */ }
 }
