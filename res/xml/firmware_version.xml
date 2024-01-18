@@ -54,6 +54,7 @@
 
     <!-- Security patch -->
     <Preference
+        android:icon="@drawable/security"
         android:key="security_key"
         android:title="@string/security_patch"
         settings:enableCopying="true"
@@ -62,6 +63,7 @@
 
     <!-- Vendor security patch -->
     <Preference
+        android:icon="@drawable/vendor_security"
         android:key="vendor_security_key"
         android:title="@*lineageos.platform:string/lineage_vendor_security_patch"
         settings:enableCopying="true"
@@ -80,6 +82,7 @@
 
     <!-- Baseband -->
     <Preference
+        android:icon="@drawable/baseband"
         android:key="base_band"
         android:title="@string/baseband_version"
         android:summary="@string/summary_placeholder"
@@ -89,6 +92,7 @@
 
     <!-- Kernel -->
     <Preference
+        android:icon="@drawable/kernel"
         android:key="kernel_version"
         android:title="@string/kernel_version"
         android:summary="@string/summary_placeholder"
@@ -98,6 +102,7 @@
 
     <!-- Build date -->
     <Preference
+        android:icon="@drawable/date"
         android:key="os_build_date"
         android:title="@*lineageos.platform:string/build_date"
         android:summary="@string/summary_placeholder"
@@ -107,6 +112,7 @@
 
     <!-- Build -->
     <Preference
+        android:icon="@drawable/ic_build_acc"
         android:key="os_build_number"
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
@@ -116,6 +122,7 @@
     
     <!-- Legal information -->
     <Preference
+        android:icon="@drawable/ic_doc"
         android:key="legal_container"
         android:order="15"
         android:title="@string/legal_information"
