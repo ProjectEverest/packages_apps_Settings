@@ -12,4 +12,11 @@
 
     <!-- Whether to show or hide sensitive info (like IMEI and Phone Number) on About phone -->
     <bool name="configShowDeviceSensitiveInfo">false</bool>
+    
+    <!-- Custom info -->
+    <string name="CUSTOM_CPU_MODEL"></string>
+    <string name="CUSTOM_SCREEN_RESOLUTION"></string>
+    <string name="CUSTOM_BATTERY_INFO"></string>
+    <string name="CUSTOM_STORAGE_INFO"></string>
+    <string name="CUSTOM_RAM_INFO"></string>
 </resources>
