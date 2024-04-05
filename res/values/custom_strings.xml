@@ -23,7 +23,7 @@
     <string name="dashboard_morning_greeting2">Good day</string>
     <string name="dashboard_noon1">Live your life</string>
     <string name="dashboard_noon2">Enjoy the sunset</string>
-    <string name="dashboard_noon3">Welcome home</string>
+    <string name="dashboard_noon3">Welcome to EverestOS</string>
     <string name="dashboard_noon4">Enjoy the day!</string>
     <string name="dashboard_noon5">Welcome back</string>
     <string name="dashboard_noon_greeting1">Good afternoon</string>
@@ -57,4 +57,3 @@
     <string name="settings_random6">Dream big and dare to fail</string>
     <string name="default_user">User</string>
 </resources>
-
