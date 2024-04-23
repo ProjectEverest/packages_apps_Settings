@@ -5,4 +5,6 @@
 -->
 <resources>
     <dimen name="card_radius">20dp</dimen>
+    <dimen name="custom_search_bar_corner_radius">22dp</dimen>
+    <dimen name="card_radius_highlight">22dp</dimen>
 </resources>
