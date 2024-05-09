@@ -98,6 +98,33 @@
         android:fragment="com.android.settings.deviceinfo.batteryinfo.BatteryInfoFragment"
         settings:keywords="@string/keywords_battery_info"/>
 
+    <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+        android:key="health_charge_enabled"
+        android:title="@string/health_charge_enabled_title"
+        android:summary="@string/health_charge_enabled_summary"
+        android:defaultValue="false"
+        android:order="996" />
+
+    <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+        android:key="health_charge_low_threshold"
+        android:title="@string/health_charge_low_threshold_title"
+        android:max="100"
+        settings:min="1"
+        settings:interval="1"
+        android:defaultValue="40"
+        android:dependency="health_charge_enabled"
+        android:order="997" />
+        
+    <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+        android:key="health_charge_high_threshold"
+        android:title="@string/health_charge_high_threshold_title"
+        android:max="100"
+        settings:min="1"
+        settings:interval="1"
+        android:defaultValue="80"
+        android:dependency="health_charge_enabled"
+        android:order="998" />
+
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
         android:title="@string/battery_footer_summary"

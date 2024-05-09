@@ -347,4 +347,10 @@
     <string name="vivid_engine_mode_title">Vivid Display</string>
     <string name="display_engine_default">Default</string>
     <string name="display_engine_mode_footer_text">Inspired by Sony\'s Bravia/X-Reality engine, the Display Engine features Vivid mode for enhanced brightness and color saturation, and X-Reality mode for improved detail and color accuracy.</string>
+
+    <!-- Healthy Charge -->
+    <string name="health_charge_enabled_title">Healthy Charge</string>
+    <string name="health_charge_enabled_summary">Enable healthy charging notifications</string>
+    <string name="health_charge_low_threshold_title">Low battery level threshold</string>
+    <string name="health_charge_high_threshold_title">Charging level threshold</string>
 </resources>
