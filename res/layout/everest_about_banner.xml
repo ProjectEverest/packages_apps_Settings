@@ -1,44 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="false"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
-    app:rippleColor="@android:color/transparent"
-    android:background="@android:color/transparent">
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="16dp"
+    android:layout_marginHorizontal="16dp"
+    android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="115.0dip"
-        android:layout_marginHorizontal="16.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
         app:cardBackgroundColor="@color/everest_pref_color"
-        app:cardCornerRadius="24.0dip"
-        app:cardElevation="0.0dip"
+        app:rippleColor="@android:color/transparent"
+        app:cardCornerRadius="22dp"
         android:clickable="false"
         android:focusable="false"
-        android:focusableInTouchMode="false"
-        app:rippleColor="@android:color/transparent"
-        app:strokeColor="?android:textColorPrimaryInverse"
-        app:strokeWidth="3.0dip">
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground">
 
-        <RelativeLayout
+        <com.radiant.widget.WallpaperBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:padding="16dp">
+            android:contentDescription="@null"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_everest_full"
-                android:tint="?android:attr/textColorPrimary" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        </RelativeLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/wallpapercard"
+                android:layout_width="85dp"
+                android:layout_height="180dp"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="20dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?android:attr/textColorPrimary"
+                app:strokeWidth="3dp">
+
+                <com.android.utils.aboutWallpaperView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1.0">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_toEndOf="@id/phone_image"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_everest_full"
+                    android:contentDescription="@null" />
+            </RelativeLayout>
+
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-</FrameLayout>
+
+</LinearLayout>
