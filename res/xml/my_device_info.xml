@@ -19,9 +19,16 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
+    <!-- Phone Image -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="about_phone_info"
+        android:layout="@layout/about_phone_info"
+        android:selectable="false" />
+
+    <!-- Hardware info -->
     <com.android.settingslib.widget.LayoutPreference
         android:key="everest_info"
-        android:layout="@layout/about_phone_info"
+        android:layout="@layout/everest_info"
         android:selectable="false" />
 
     <!-- Device name -->
