@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-   Copyright 2020 Wave-OS
+<?xml version="1.0" encoding="utf-8"?><!--
+   Copyright 2024 EverestOS
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -16,7 +15,7 @@
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/everest_info"
+    android:id="@+id/about_phone_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,183 +24,36 @@
         android:id="@+id/phone_image"
         android:layout_width="100dp"
         android:layout_height="200dp"
-        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        app:cardElevation="0dp"
+        android:layout_marginTop="30dp"
         app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
         app:strokeColor="?android:attr/textColorPrimary"
         app:strokeWidth="3dp">
 
         <com.android.utils.aboutWallpaperView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:gravity="center"
-            android:elevation="0dp"
             android:contentDescription="@null"
-            android:orientation="vertical" />
+            android:elevation="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:scaleType="centerCrop" />
 
     </com.google.android.material.card.MaterialCardView>
-    
-    <LinearLayout
-       android:id="@+id/first_horizontal_row"
-       android:orientation="horizontal"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/phone_image"
-       android:layout_marginStart="16dp"
-       android:layout_marginEnd="16dp"
-       android:layout_marginTop="16dp"
-       android:layout_marginBottom="-2dp"
-       android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:layout_weight="5"
-        android:gravity="center"
-        android:layout_margin="2dp"
-        android:background="@drawable/top_start_bg">
-        
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/processor"
-            android:padding="5dp"
-            android:contentDescription="Processor Icon"/>
-
-        <TextView
-            android:id="@+id/processor_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:fontFamily="@*android:string/config_bodyFontFamilyMedium"
-            android:textAppearance="?android:attr/textAppearanceListItem"
-            android:text="Processor"/>
-
-        <TextView
-            android:id="@+id/processor_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Processor Info"
-            android:textSize="12sp"
-            android:fontFamily="@*android:string/config_regularFontFamily"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:layout_weight="5"
-        android:gravity="center"
-        android:background="@drawable/top_end_bg">
-        
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/battery"
-            android:padding="5dp"
-            android:contentDescription="Battery Icon"/>
-
-        <TextView
-            android:id="@+id/battery_type_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Battery"
-            android:textSize="16sp"
-            android:fontFamily="@*android:string/config_bodyFontFamilyMedium"
-            android:textAppearance="?android:attr/textAppearanceListItem"/>
-
-        <TextView
-            android:id="@+id/battery_type_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Battery Type Info"
-            android:textSize="12sp"
-            android:fontFamily="@*android:string/config_regularFontFamily"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"/>
-    </LinearLayout>
-  </LinearLayout>
-  
-  <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/everest_os_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/first_horizontal_row"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="-2dp"
-        android:gravity="center">
-        
-     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:layout_margin="2dp"
-        android:background="@drawable/bottom_start_bg">
-        
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/screen"
-            android:padding="5dp"
-            android:contentDescription="Screen Icon"/>
+        android:layout_below="@id/phone_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="evolvesans-bold"
+        android:text="EverestOS"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="45dp"
+        android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/screen_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:fontFamily="@*android:string/config_bodyFontFamilyMedium"
-            android:textAppearance="?android:attr/textAppearanceListItem"
-            android:text="Screen"/>
-
-        <TextView
-            android:id="@+id/screen_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Screen Info"
-            android:textSize="12sp"
-            android:fontFamily="@*android:string/config_regularFontFamily"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:background="@drawable/bottom_end_bg">
-        
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/storage"
-            android:padding="5dp"
-            android:contentDescription="Storage Icon"/>
-
-        <TextView
-            android:id="@+id/storage_code_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:fontFamily="@*android:string/config_bodyFontFamilyMedium"
-            android:textAppearance="?android:attr/textAppearanceListItem"
-            android:text="Storage"/>
-
-        <TextView
-            android:id="@+id/storage_code_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Storage Code Info"
-            android:textSize="12sp"
-            android:fontFamily="@*android:string/config_regularFontFamily"
-            android:textAppearance="?android:attr/textAppearanceListItemSmall"/>
-    </LinearLayout>
-  </LinearLayout>
 </RelativeLayout>
