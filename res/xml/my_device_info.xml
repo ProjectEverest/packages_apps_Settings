@@ -19,10 +19,23 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
+    <!-- Phone Image -->
     <com.android.settingslib.widget.LayoutPreference
-        android:key="everest_info"
+        android:key="about_phone_info"
         android:layout="@layout/about_phone_info"
         android:selectable="false" />
+
+    <!-- Hardware info -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="everest_hardware_info"
+        android:layout="@layout/everest_hardware_info"
+        android:selectable="false" />
+
+    <Preference
+        android:key="rom_build_status"
+        settings:layout="@layout/everest_build_status"
+        settings:enableCopying="true"
+        android:selectable="true"/>
 
     <!-- Device name -->
     <com.android.settings.widget.ValidatedEditTextPreference
