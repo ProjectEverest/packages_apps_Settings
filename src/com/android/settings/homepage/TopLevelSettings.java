@@ -257,7 +257,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
                 || key.equals("top_level_system")){
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_top);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_top);
             } else if (key.equals("top_level_battery")
               || key.equals("top_level_wallpaper")
             	|| key.equals("top_level_security")
@@ -266,17 +266,17 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_wellbeing")
             	|| key.equals("top_level_location")
             	|| key.equals("top_level_notifications")){
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_middle);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if ("top_level_google".equals(key)){
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_bottom);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             } else if (key.equals("top_level_accounts") && gAppsExists){
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_middle);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if (key.equals("top_level_basecamp")){
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_single);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_single);
             } else if (key.equals("top_level_about_device")){
                 preference.setLayoutResource(R.layout.custom_dashboard_top);
             } else {
-                preference.setLayoutResource(R.layout.everestos_dashboard_preference_bottom);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             }
        }
     }
