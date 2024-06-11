@@ -353,4 +353,8 @@
     <string name="health_charge_enabled_summary">Enable healthy charging notifications</string>
     <string name="health_charge_low_threshold_title">Low battery level threshold</string>
     <string name="health_charge_high_threshold_title">Charging level threshold</string>
+
+    <!-- Adaptive Charging -->
+    <string name="adaptive_charging_enabled_title">Optimized Charging</string>
+    <string name="adaptive_charging_enabled_summary">Enable adaptive power strategy while device is charging</string>
 </resources>
