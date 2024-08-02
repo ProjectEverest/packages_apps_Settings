@@ -18,45 +18,33 @@ package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
 import android.os.SystemProperties;
-
-import androidx.preference.Preference;
-
+import android.text.TextUtils;
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
 public class LineageVersionDetailPreferenceController extends BasePreferenceController {
-
-    private static final String TAG = "lineageVersionDialogCtrl";
-
     private static final String KEY_LINEAGE_VERSION_PROP = "ro.modversion";
+    private static final String EVEREST_BUILDTYPE_PROPERTY = "ro.everest.buildtype";
+    private static final String EVEREST_EDITION_PROPERTY = "ro.everest.edition";
 
-    public LineageVersionDetailPreferenceController(Context context, String key) {
-        super(context, key);
+    public LineageVersionDetailPreferenceController(Context context, String preferenceKey) {
+        super(context, preferenceKey);
     }
 
     @Override
     public int getAvailabilityStatus() {
-        return AVAILABLE;
-    }
-
-    @Override
-    public boolean useDynamicSliceSummary() {
-        return true;
-    }
-
-    @Override
-    public boolean isSliceable() {
-        return true;
+        return TextUtils.isEmpty(SystemProperties.get(KEY_LINEAGE_VERSION_PROP)) ? 
+               UNSUPPORTED_ON_DEVICE : AVAILABLE;
     }
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_LINEAGE_VERSION_PROP,
-                mContext.getString(R.string.unknown));
-    }
+        String[] properties = {
+            SystemProperties.get(KEY_LINEAGE_VERSION_PROP),
+            SystemProperties.get(EVEREST_BUILDTYPE_PROPERTY),
+            SystemProperties.get(EVEREST_EDITION_PROPERTY)
+        };
 
-    @Override
-    public boolean handlePreferenceTreeClick(Preference preference) {
-        return false;
+        return String.join(" | ", TextUtils.join(" | ", properties).trim());
     }
 }
