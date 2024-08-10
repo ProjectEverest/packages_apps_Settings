@@ -21,6 +21,11 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/everest_about_banner"
+        android:key="everest_banner"
+        android:clickable="false" />
+
     <!-- Android version -->
     <Preference
         android:icon="@drawable/ic_android_acc"
