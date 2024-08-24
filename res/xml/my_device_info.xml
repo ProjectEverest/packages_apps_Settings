@@ -77,7 +77,7 @@
         android:selectable="false"
         android:summary="@string/summary_placeholder"
         android:title="@string/status_up_time"
-        settings:layout="@layout/everest_dashboard_preference_top" />
+        settings:layout="@layout/everestos_dashboard_preference_top" />
 
     <!-- Device deep sleep time -->
     <Preference
@@ -87,7 +87,7 @@
         android:selectable="false"
         android:summary="@string/summary_placeholder"
         android:title="@string/status_sleep_time"
-        settings:layout="@layout/everest_dashboard_preference_middle" />
+        settings:layout="@layout/everestos_dashboard_preference_middle" />
 
     <!-- Build number -->
     <Preference

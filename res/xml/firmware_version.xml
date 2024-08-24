@@ -44,7 +44,7 @@
         android:title="@*lineageos.platform:string/lineage_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_middle"
+        settings:layout="@layout/everestos_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
 
     <!-- EverestOS Maintainer -->
@@ -54,7 +54,7 @@
         android:title="@string/EverestOS_maintainer"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_bottom"
+        settings:layout="@layout/everestos_dashboard_preference_bottom"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.EverestOSMaintainerPreferenceController"/>
 
     <!-- Security patch -->
@@ -72,7 +72,7 @@
         android:key="vendor_security_key"
         android:title="@*lineageos.platform:string/lineage_vendor_security_patch"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_middle"
+        settings:layout="@layout/everestos_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVendorSecurityPatchLevelPreferenceController"/>
 
     <!-- Mainline module version -->
@@ -92,7 +92,7 @@
         android:title="@string/baseband_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_bottom"
+        settings:layout="@layout/everestos_dashboard_preference_bottom"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
 
     <!-- Kernel -->
@@ -112,7 +112,7 @@
         android:title="@*lineageos.platform:string/build_date"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_middle"
+        settings:layout="@layout/everestos_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageBuildDatePreferenceController"/>
 
     <!-- Build -->
@@ -122,7 +122,7 @@
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:layout="@layout/everest_dashboard_preference_middle"
+        settings:layout="@layout/everestos_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/>
     
     <!-- Legal information -->
@@ -132,6 +132,6 @@
         android:order="15"
         android:title="@string/legal_information"
         android:fragment="com.android.settings.LegalSettings"
-        settings:layout="@layout/everest_dashboard_preference_bottom" />
+        settings:layout="@layout/everestos_dashboard_preference_bottom" />
 
 </PreferenceScreen>
