@@ -18,7 +18,8 @@
     android:id="@+id/container"
     style="@style/everestPreferenceMiddle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0dp">
 
     <include
         layout="@layout/everestos_dashboard_pref"
