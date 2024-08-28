@@ -262,91 +262,14 @@ public class SettingsHomepageActivity extends FragmentActivity implements
             }
         }
 
-	final View root = findViewById(R.id.settings_homepage_container);
-	final TextView textView = root.findViewById(R.id.user_title);
-	final TextView homepageTitle = root.findViewById(R.id.homepage_title);
-	final TextView searchTextView = root.findViewById(R.id.search_action_bar_title);
-
-	homepageTitle.setVisibility(View.VISIBLE);
-	textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.header_text_size_contextual));
-
-	String[] randomMsgSearch = getResources().getStringArray(R.array.settings_random);
-        String[] morningMsg = getResources().getStringArray(R.array.dashboard_morning);
-        String[] morningMsgGreet = getResources().getStringArray(R.array.dashboard_morning_greetings);
-        String[] msgNight = getResources().getStringArray(R.array.dashboard_night);
-        String[] msgearlyNight = getResources().getStringArray(R.array.dashboard_early_night);
-        String[] msgNoon = getResources().getStringArray(R.array.dashboard_noon);
-        String[] msgMN = getResources().getStringArray(R.array.dashboard_midnight);
-        String[] msgRandom = getResources().getStringArray(R.array.dashboard_random);
-        String[] msgRandomGreet = getResources().getStringArray(R.array.dashboard_random_greetings);
-
-        String greetingsEN = getResources().getString(R.string.dashboard_early_night_greeting1);
-        String greetingsN = getResources().getString(R.string.dashboard_night_greetings1);
-        String greetingsNoon = getResources().getString(R.string.dashboard_noon_greeting1);
-        String random6 = getResources().getString(R.string.dashboard_random6);
-
-	Random genSearchMsg = new Random();
-	int searchRnd = genSearchMsg.nextInt(randomMsgSearch.length-1);
-        searchTextView.setText(randomMsgSearch[searchRnd]);
-
-        switch (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {
-            case 5: case 6: case 7: case 8: case 9: case 10:
-       	// Generate random welcome massage as title header
-        	Random genMorningMsg = new Random();
-        	int morning = genMorningMsg.nextInt(morningMsg.length-1);
-        	int morningGreet = genMorningMsg.nextInt(morningMsgGreet.length-1);
-        	textView.setText(morningMsgGreet[morningGreet] + " " + getOwnerName() + ",");
-        	homepageTitle.setText(morningMsg[morning]);
-                break;
-
-            case 18: case 19: case 20: 
-        	Random genmsgeNight = new Random();
-        	int eNight = genmsgeNight.nextInt(msgearlyNight.length-1);
-        	textView.setText(greetingsEN + " " + getOwnerName() + ",");
-        	homepageTitle.setText(msgearlyNight[eNight]);
-                break;
-                
-            case 21: case 22: case 23: case 0: 
-        	Random genmsgNight = new Random();
-        	int night = genmsgNight.nextInt(msgNight.length-1);
-        	textView.setText(greetingsN + " " + getOwnerName() + ",");
-        	homepageTitle.setText(msgNight[night]);
-                break;
-
-             case 16: case 17:
-        	Random genmsgNoon = new Random();
-        	int noon = genmsgNoon.nextInt(msgNoon.length-1);
-        	textView.setText(greetingsNoon + " " + getOwnerName() + ",");
-        	homepageTitle.setText(msgNoon[noon]);
-                break;
-
-            case 1: case 2: case 3: case 4:
-        	Random genmsgMN = new Random();
-        	int mn = genmsgMN.nextInt(msgMN.length-1);
-        	int rd = genmsgMN.nextInt(msgRandom.length-1);
-        	textView.setText(msgRandom[rd] + " " + getOwnerName() + ",");
-        	homepageTitle.setText(msgMN[mn]);
-                break;
-                
-            case 11: case 12: case 13: case 14: case 15:
-        	Random genmsgRD = new Random();
-        	int randomm = genmsgRD.nextInt(msgRandom.length-1);
-        	int randomGreet = genmsgRD.nextInt(msgRandomGreet.length-1);
-        	textView.setText(msgRandom[randomm] + " " + getOwnerName() + ",");
-        	homepageTitle.setText(msgRandomGreet[randomGreet]);
-                break;
-
-            default:
-                break;
-        }
         setupEdgeToEdge();
         mActivityEmbeddingController = ActivityEmbeddingController.getInstance(this);
         mIsTwoPane = mActivityEmbeddingController.isActivityEmbedded(this);
-        
         updateAppBarMinHeight();
         initHomepageContainer();
         updateHomepageAppBar();
         initSearchBarView();
+        initDashboardMessages();
         // Only allow features on high ram devices.
         if (!getSystemService(ActivityManager.class).isLowRamDevice()) {
             final boolean scrollNeeded = mIsEmbeddingActivityEnabled
@@ -385,6 +308,79 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         updateSplitLayout();
 
         enableTaskLocaleOverride();
+    }
+
+    private void initDashboardMessages() {
+        boolean showDashboardMessages = android.provider.Settings.System.getInt(
+                getApplicationContext().getContentResolver(), "show_contextual_dashboard_messages", 1) != 0;
+
+        final View root = findViewById(R.id.settings_homepage_container);
+        final TextView textView = root.findViewById(R.id.user_title);
+        final TextView homepageTitle = root.findViewById(R.id.homepage_title);
+        final TextView searchTextView = root.findViewById(R.id.search_action_bar_title);
+
+        String[] randomMsgSearch = getResources().getStringArray(R.array.settings_random);
+        Random random = new Random();
+        searchTextView.setText(randomMsgSearch[random.nextInt(randomMsgSearch.length)]);
+
+        if (showDashboardMessages) {
+            setupDashboardMessages(textView, homepageTitle);
+        } else {
+            showDefaultSettingsLabel(textView);
+        }
+    }
+
+    private void setupDashboardMessages(TextView textView, TextView homepageTitle) {
+        homepageTitle.setVisibility(View.VISIBLE);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.header_text_size_contextual));
+
+        String[] messages = getMessagesBasedOnTime();
+        String greeting = getGreetingBasedOnTime();
+        String ownerName = getOwnerName();
+
+        textView.setText(greeting + " " + ownerName + ",");
+        homepageTitle.setText(messages[new Random().nextInt(messages.length)]);
+    }
+
+    private String[] getMessagesBasedOnTime() {
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+
+        if (hour >= 5 && hour <= 10) {
+            return getResources().getStringArray(R.array.dashboard_morning);
+        } else if (hour >= 18 && hour <= 20) {
+            return getResources().getStringArray(R.array.dashboard_early_night);
+        } else if (hour >= 21 || hour <= 0) {
+            return getResources().getStringArray(R.array.dashboard_night);
+        } else if (hour >= 16 && hour <= 17) {
+            return getResources().getStringArray(R.array.dashboard_noon);
+        } else if (hour >= 1 && hour <= 4) {
+            return getResources().getStringArray(R.array.dashboard_midnight);
+        } else {
+            return getResources().getStringArray(R.array.dashboard_random_greetings);
+        }
+    }
+
+    private String getGreetingBasedOnTime() {
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+
+        if (hour >= 5 && hour <= 10) {
+            return getResources().getString(R.string.dashboard_morning_greeting1);
+        } else if (hour >= 18 && hour <= 20) {
+            return getResources().getString(R.string.dashboard_early_night_greeting1);
+        } else if (hour >= 21 || hour <= 0) {
+            return getResources().getString(R.string.dashboard_night_greetings1);
+        } else if (hour >= 16 && hour <= 17) {
+            return getResources().getString(R.string.dashboard_noon_greeting1);
+        } else {
+            return getResources().getString(R.string.dashboard_random_greetings1);
+        }
+    }
+
+    private void showDefaultSettingsLabel(TextView textView) {
+        textView.setVisibility(View.VISIBLE);
+        textView.setText(R.string.settings_label);
+        textView.setTextColor(Utils.getColorAttrDefaultColor(this, android.R.attr.textColorPrimary));
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.header_text_size_default));
     }
 
     @Override
