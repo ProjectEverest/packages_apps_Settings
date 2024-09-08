@@ -268,7 +268,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             final Preference preference = screen.getPreference(i);
 
             String key = preference.getKey();
-            
+            CharSequence title = preference.getTitle();
+
        switch (mDashBoardStyle) {
 	case 0:
             if (key.equals("top_level_network")
@@ -287,7 +288,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if ("top_level_google".equals(key)){
-                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if (key.equals("top_level_accounts") && gAppsExists){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if (key.equals("top_level_basecamp")){
@@ -302,6 +303,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                 } else if (mAboutPhoneStyle == 3) {
                     preference.setLayoutResource(R.layout.top_about_lottie2);
                 }
+             }else if ("Back up or copy data".contentEquals(title)) {
+                 preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
              } else {
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             }
@@ -323,11 +326,13 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_wellbeing")){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if ("top_level_google".equals(key)){
-                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if (key.equals("top_level_accounts") && gAppsExists){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_middle);
             } else if (key.equals("top_level_basecamp")){
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_single);
+            }else if ("Back up or copy data".contentEquals(title)) {
+                preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             } else {
                 preference.setLayoutResource(R.layout.everest_dashboard_preference_bottom);
             }
